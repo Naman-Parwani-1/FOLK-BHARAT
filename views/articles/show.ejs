@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate") -%>
+
+    <body>
+        <div class="card">
+            <div class="card-header">
+                <h3>
+                    <%=article.title%>
+                        <span class="badge text-bg-warning" style="color: white !important;">
+                            <%=article.city%>
+                        </span>
+                        <span class="badge text-bg-warning" style="color: white !important;">
+                            <%=article.state_name%>
+                        </span>
+                        <span class="badge text-bg-warning" style="color: white !important;">
+                            <%=article.category_name%>
+                        </span>
+                        <span class="badge text-bg-warning" style="color: white !important;">
+                            <%=article.username%>
+                        </span>
+                </h3>
+            </div>
+            <div class="card-body">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p>
+                            <%= article.content %>
+                        </p>
+                    </blockquote><br>
+                    <figcaption class="blockquote-footer">
+                        <%= article.author %>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="card-footer">
+                <form method="GET" action="/articles/<%=article.id%>/edit" style="display: inline;">
+                    <button class="btn btn-warning" style="color: white;">Edit</button>
+                </form>
+                <form method="POST" action="/articles/<%=article.id%>?_method=DELETE" style="display: inline;">
+                    <button class="btn btn-warning" style="color: white;">Delete</button>
+                </form>
+            </div>
+            
+        </div>
+    </body>

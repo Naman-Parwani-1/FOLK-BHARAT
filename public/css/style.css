@@ -1,0 +1,149 @@
+body {
+    background-image: url("/assets/Background.jpeg");
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    height: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    height: 3rem;
+    width: 7.5rem;
+    background-image: url("/assets/Logo.png");
+    background-size: cover;
+}
+
+/* Cards */
+.card {
+    border: none !important;
+    margin: 1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    object-fit: cover !important;
+}
+
+.cards-home {
+    width: 100%;
+    justify-content: center;
+    margin: 1rem ;
+    position: absolute;
+    top: 31rem;
+    left: 0.5rem;
+    right: 0.5rem;
+}
+
+.cards-home img {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.cards-home h2 {
+    color: white;
+}
+
+/* Footer */
+.footer {
+    height: 25rem;
+    width: 100%;
+    border: 2px solid black;
+    background-color: #1f1f1f;
+    color: white;
+}
+
+.top {
+    height:3rem;
+    width: 100%;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top:active {
+    border: 2px solid white;
+}
+
+.rights {
+    height:4rem;
+    width: 100%;
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content {
+    height:17rem;
+    width: 100%;
+    display: flex;
+}
+
+.footer-content .section {
+    height:17rem;
+    width: 25%;
+}
+
+.section {
+    padding: 1.5rem;
+}
+
+a i {
+    font-size: 2rem;
+}
+
+/* Map */
+.map-container {
+    width: 50%;
+    height: 100vh;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.regions path:hover {
+    cursor: pointer;
+    fill: red;
+}
+
+/* Home Page Card Animation */
+.slider {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    margin-top: 25rem;
+}
+
+.slide-track {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+
+    animation: scroll 20s linear infinite;
+}
+
+.card {
+    background: white;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes scroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

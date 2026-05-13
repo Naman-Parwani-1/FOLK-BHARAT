@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerplate") -%>
+
+    <body>
+        <h2>Add New Article</h2>
+        <form class="row g-3 needs-validation" method="POST" action="/articles" style="margin-bottom: 1rem;" enctype="multipart/form-data" novalidate>
+            <div class="col-md-6">
+                <label for="title" class="form-label"><b>Title
+                    </b></label>
+                <input type="text" class="form-control" id="title" name="title" required>
+                <div class="valid-feedback">
+                    Title looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Don't keep it empty!
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="author" class="form-label"><b>Author</b></label>
+                <input type="text" class="form-control" id="author" name="author" required>
+                <div class="invalid-feedback">
+                    Enter a valid Author Name!
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="content" class="form-label"><b>Content</b></label>
+                <textarea class="form-control" id="content" name="content" placeholder="Write your article" rows="5"
+                    required></textarea>
+                <div class="valid-feedback">
+                    Looks informative!
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="image"><b>Upload Image</b></label>
+                <input type="file" class="form-control" id="image" name="image">
+                <div class="invalid-feedback">
+                    Upload in an appropriate format!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="category" class="form-label"><b>Category</b></label>
+                <select id="category" name="category_id" class="form-select" required>
+                    <option selected>Select Option</option>
+                    <% for(let category of categories) { %>
+                        <option value="<%= category.category_id %>">
+                            <%= category.category_name %>
+                        </option>
+                        <% } %>
+                </select>
+                <div class="invalid-feedback">
+                    Select a valid category!
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="city" class="form-label"><b>City</b></label>
+                <input type="text" class="form-control" id="city" name="city" required>
+                <div class="invalid-feedback">
+                    Don't keep it empty!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="state" class="form-label"><b>State</b></label>
+                <select id="state" name="state_id" class="form-select" required>
+                    <option selected>Select Option</option>
+                    <% for(let state of states) { %>
+                        <option value="<%= state.state_id %>">
+                            <%= state.state_name %>
+                        </option>
+                        <% } %>
+                </select>
+                <div class="invalid-feedback">
+                    Select a valid State!
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-warning" style="color: white;">Submit</button>
+            </div>
+        </form>
+        <script src="/js/script.js"></script>
+    </body>
