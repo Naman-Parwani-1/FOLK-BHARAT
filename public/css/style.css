@@ -119,7 +119,6 @@ a i {
     width: 100%;
     overflow: hidden;
     padding: 20px 0;
-    margin-top: 25rem;
 }
 
 .slide-track {
@@ -147,3 +146,4 @@ a i {
         transform: translateX(-50%);
     }
 }
+

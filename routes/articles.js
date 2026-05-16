@@ -473,7 +473,7 @@ router.get("/:id", (req, res) => {
     JOIN users
     ON articles.u_id = users.u_id
     
-    WHERE articles.id = ? AND status = 'approved'
+    WHERE articles.id = ? AND articles.status = 'approved'
     
     `;
 
@@ -486,9 +486,7 @@ router.get("/:id", (req, res) => {
 
         let article = result[0];
 
-        res.render("articles/show.ejs", {
-            article
-        });
+        res.render("articles/show.ejs", { article });
 
     });
 
