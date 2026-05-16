@@ -8,11 +8,14 @@ const multer = require("multer");
 
 const { isLoggedIn, isOwner } = require("../middleware.js");
 
+require("dotenv").config();
+
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "folkbharat",
-    password: "Auto@4321",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 });
 
 //MULTER MEMORY STORAGE

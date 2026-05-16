@@ -50,10 +50,11 @@ app.use("/users", userRoutes);
 app.use("/admin", adminRoutes);
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "folkbharat",
-    password: "Auto@4321",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 });
 
 //MULTER MEMORY STORAGE
@@ -148,6 +149,6 @@ app.get("/", (req, res) => {
     }
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server is running on port 8080");
 });
