@@ -1,122 +1,167 @@
-<nav class="navbar navbar-expand-md bg-body">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">
-      <div class="logo"></div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/"><button type="button"
-              class="btn btn-outline-primary">Home</button></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/articles"><button type="button"
-              class="btn btn-outline-primary">Articles</button></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/articles/new"><button type="button" class="btn btn-outline-primary">Add New
-              Article</button></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/articles/random"><button type="button" class="btn btn-primary">Explore
-              Random</button></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/articles/map"><button type="button" class="btn btn-primary">Search On
-              Map</button></a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search" action="/articles/search" method="GET">
-        <input class="form-control" type="search" placeholder="Search FolkBharat..." aria-label="Search" name="q"
-          required />
-        <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-      <div class="navbar-nav">
-        <!-- PROFILE DROPDOWN -->
+<nav class="navbar navbar-expand-lg bg-body shadow-sm sticky-top">
 
-        <div class="dropdown ms-3">
+    <div class="container-fluid">
 
-          <a href="#" class="text-decoration-none" data-bs-toggle="dropdown">
+        <a class="navbar-brand" href="/">
+            <div class="logo"></div>
+        </a>
 
-            <i class="fa-solid fa-circle-user" style="
-                font-size: 2rem;
-                color: blue;
-                cursor: pointer;
-            "></i>
+        <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
 
-          </a>
+            <span class="navbar-toggler-icon"></span>
 
-          <ul class="dropdown-menu dropdown-menu-end">
+        </button>
 
-            <!-- IF USER NOT LOGGED IN -->
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 
-            <% if(!currUser){ %>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
 
-              <li>
-                <a class="dropdown-item" href="/users/login">
-                  Login
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item" href="/users/signup">
-                  Sign Up
-                </a>
-              </li>
-
-              <% } else { %>
-
-                <!-- ADMIN -->
-
-                <% if(currUser.role==="admin" ){ %>
-
-                  <li>
-                    <a class="dropdown-item" href="/admin/dashboard">
-                      Dashboard
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <button type="button" class="btn btn-outline-primary">
+                            Home
+                        </button>
                     </a>
-                  </li>
+                </li>
 
-                  <li>
-                    <a class="dropdown-item" href="/users/profile">
-                      Profile
+                <li class="nav-item">
+                    <a class="nav-link" href="/articles">
+                        <button type="button" class="btn btn-outline-primary">
+                            Articles
+                        </button>
                     </a>
-                  </li>
+                </li>
 
-                  <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/articles/new">
+                        <button type="button" class="btn btn-outline-primary">
+                            Add New Article
+                        </button>
+                    </a>
+                </li>
 
-                    <!-- AUTHOR + USER -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/articles/random">
+                        <button type="button" class="btn btn-primary">
+                            Explore Random
+                        </button>
+                    </a>
+                </li>
 
-                    <li>
-                      <a class="dropdown-item" href="/users/profile">
-                        Profile
-                      </a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/articles/map">
+                        <button type="button" class="btn btn-primary">
+                            Search On Map
+                        </button>
+                    </a>
+                </li>
 
-                    <% } %>
+            </ul>
 
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
+            <form class="d-flex gap-2 align-items-center me-lg-3 mt-3 mt-lg-0"
+                role="search"
+                action="/articles/search"
+                method="GET">
 
-                      <li>
-                        <a class="dropdown-item text-danger" href="/users/logout">
-                          Logout
-                        </a>
-                      </li>
+                <input class="form-control"
+                    type="search"
+                    placeholder="Search FolkBharat..."
+                    aria-label="Search"
+                    name="q"
+                    required />
 
-                      <% } %>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
 
-          </ul>
+            </form>
+
+            <div class="navbar-nav">
+
+                <div class="dropdown ms-lg-2 mt-3 mt-lg-0">
+
+                    <a href="#"
+                        class="text-decoration-none"
+                        data-bs-toggle="dropdown">
+
+                        <i class="fa-solid fa-circle-user"
+                            style="
+                            font-size: 2rem;
+                            color: blue;
+                            cursor: pointer;
+                        "></i>
+
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <% if(!currUser){ %>
+
+                            <li>
+                                <a class="dropdown-item" href="/users/login">
+                                    Login
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="/users/signup">
+                                    Sign Up
+                                </a>
+                            </li>
+
+                            <% } else { %>
+
+                                <% if(currUser.role==="admin" ){ %>
+
+                                    <li>
+                                        <a class="dropdown-item" href="/admin/dashboard">
+                                            Dashboard
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item" href="/users/profile">
+                                            Profile
+                                        </a>
+                                    </li>
+
+                                    <% } else { %>
+
+                                        <li>
+                                            <a class="dropdown-item" href="/users/profile">
+                                                Profile
+                                            </a>
+                                        </li>
+
+                                        <% } %>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item text-danger"
+                                                    href="/users/logout">
+                                                    Logout
+                                                </a>
+                                            </li>
+
+                                            <% } %>
+
+                    </ul>
+
+                </div>
+
+            </div>
 
         </div>
-      </div>
+
     </div>
-  </div>
+
 </nav>
-
-
-<!-- <a href="#" style="margin-left: 1rem;"><i class="fa-solid fa-circle-user"></i></a> -->

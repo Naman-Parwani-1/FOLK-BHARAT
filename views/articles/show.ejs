@@ -1,41 +1,99 @@
 <% layout("/layouts/boilerplate") -%>
 
-    <body>
-        <div class="card">
-            <div class="card-header">
-                <h3>
+<div class="container-fluid py-3">
+
+    <div class="card shadow-lg">
+
+        <div class="card-header bg-white p-4">
+
+            <div class="d-flex flex-column gap-3">
+
+                <h2 class="fw-bold mb-0">
+
                     <%=article.title%>
-                        <span class="badge text-bg-warning" style="color: white !important;">
-                            <%=article.city%>
-                        </span>
-                        <span class="badge text-bg-warning" style="color: white !important;">
-                            <%=article.state_name%>
-                        </span>
-                        <span class="badge text-bg-warning" style="color: white !important;">
-                            <%=article.category_name%>
-                        </span>
-                </h3>
+
+                </h2>
+
+                <div class="d-flex flex-wrap gap-2">
+
+                    <span class="badge text-bg-warning text-white p-2">
+
+                        <%=article.city%>
+
+                    </span>
+
+                    <span class="badge text-bg-warning text-white p-2">
+
+                        <%=article.state_name%>
+
+                    </span>
+
+                    <span class="badge text-bg-warning text-white p-2">
+
+                        <%=article.category_name%>
+
+                    </span>
+
+                </div>
+
             </div>
-            <div class="card-body">
-                <figure>
-                    <blockquote class="blockquote">
-                        <p>
-                            <%= article.content %>
-                        </p>
-                    </blockquote><br>
-                    <figcaption class="blockquote-footer">
-                        <%= article.author %>
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="card-footer">
-                <form method="GET" action="/articles/<%=article.id%>/edit" style="display: inline;">
-                    <button class="btn btn-warning" style="color: white;">Edit</button>
-                </form>
-                <form method="POST" action="/articles/<%=article.id%>?_method=DELETE" style="display: inline;">
-                    <button class="btn btn-warning" style="color: white;">Delete</button>
-                </form>
-            </div>
-            
+
         </div>
-    </body>
+
+        <div class="card-body p-4">
+
+            <figure class="mb-0">
+
+                <blockquote class="blockquote">
+
+                    <p style="line-height: 1.9; font-size: 1.05rem;">
+
+                        <%= article.content %>
+
+                    </p>
+
+                </blockquote>
+
+                <figcaption class="blockquote-footer mt-4">
+
+                    <%= article.author %>
+
+                </figcaption>
+
+            </figure>
+
+        </div>
+
+        <div class="card-footer bg-white p-4">
+
+            <div class="d-flex flex-wrap gap-3">
+
+                <form method="GET"
+                    action="/articles/<%=article.id%>/edit">
+
+                    <button class="btn btn-warning text-white px-4">
+
+                        Edit
+
+                    </button>
+
+                </form>
+
+                <form method="POST"
+                    action="/articles/<%=article.id%>?_method=DELETE">
+
+                    <button class="btn btn-danger px-4">
+
+                        Delete
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
