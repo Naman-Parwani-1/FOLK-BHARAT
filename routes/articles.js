@@ -418,7 +418,7 @@ router.put("/:id", isLoggedIn, isOwner, upload.single("image"), (req, res) => {
     if (req.user.role === "admin" || req.user.role === "author") {
         status = "approved";
     }
-    let { title, author, content, city, state_id, category_id } = req.body;
+    let { title, author, content, city, state_id, category_id,} = req.body;
     let q1 = `SELECT image FROM articles WHERE id = '${id}'`;
     connection.query(q1, (err, result) => {
         if (err) throw err;
@@ -428,7 +428,7 @@ router.put("/:id", isLoggedIn, isOwner, upload.single("image"), (req, res) => {
             image = req.file.buffer;
         }
         let q2 = `UPDATE articles SET title = ?, author = ?, content = ?, image = ?, city = ?, state_id = ?, category_id = ?, status = ? WHERE id = ? `;
-        connection.query(q2, [title, author, content, image, city, state_id, category_id, id], (err, result) => {
+        connection.query(q2, [title, author, content, image, city, state_id, category_id, status, id], (err, result) => {
             if (err) throw err;
             res.redirect(`/articles/${id}`);
         }
