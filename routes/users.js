@@ -57,18 +57,23 @@ router.post("/signup", async (req, res) => {
 
 //LOGIN PAGE ROUTE
 router.get("/login", (req, res) => {
+    delete req.session.redirectUrl;
     res.render("users/login.ejs");
 });
 
 //LOGIN ROUTE
-router.post("/login", saveRedirectUrl, passport.authenticate("local", {
-    failureRedirect: "/users/login",
-    failureFlash: true
-}), (req, res) => {
+router.post(
+    "/login",
+    saveRedirectUrl,
+    passport.authenticate("local", {
+        failureRedirect: "/users/login",
+        failureFlash: true
+    }),
+    (req, res) => {
         req.flash("success", "Welcome back!");
-        let redirectUrl = res.locals.redirectUrl || "/";
-        res.redirect(redirectUrl);
 
+        const redirectUrl = res.locals.redirectUrl || "/";
+        res.redirect(redirectUrl);
     }
 );
 

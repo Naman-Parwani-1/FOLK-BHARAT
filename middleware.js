@@ -11,10 +11,19 @@ const connection = mysql.createConnection({
 
 //LOGIN CHECK
 module.exports.isLoggedIn = (req, res, next) => {
+    console.log("Blocked URL:", req.originalUrl);
+
     if (req.isAuthenticated()) {
         return next();
     }
+
     req.session.redirectUrl = req.originalUrl;
+
+    console.log(
+        "Saved redirectUrl:",
+        req.session.redirectUrl
+    );
+
     req.flash("error", "You must login first");
     res.redirect("/users/login");
 }
@@ -23,9 +32,12 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.saveRedirectUrl = (req, res, next) => {
     if (req.session.redirectUrl) {
         res.locals.redirectUrl = req.session.redirectUrl;
+
+        // Remove after using it once
+        delete req.session.redirectUrl;
     }
     next();
-}
+};
 
 //OWNER CHECK
 module.exports.isOwner = async (req, res, next) => {
